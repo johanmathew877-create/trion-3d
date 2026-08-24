@@ -83,13 +83,13 @@ export default function FooterSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4">
+          <h2 className="text-5xl sm:text-6xl font-black text-white tracking-tight mb-6">
             Get in{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
               Touch
             </span>
           </h2>
-          <p className="text-white/40 max-w-md mx-auto">
+          <p className="text-lg text-white/40 max-w-md mx-auto">
             Ready to transform your business? Reach out to us today.
           </p>
         </motion.div>
@@ -101,15 +101,15 @@ export default function FooterSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="glass-bright rounded-2xl p-6 neon-border card-3d group text-center"
+            className="glass-bright rounded-2xl p-8 neon-border card-3d group text-center"
           >
-            <div className="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mx-auto mb-4 text-cyan-400 group-hover:scale-110 transition-transform">
-              <Phone size={22} />
+            <div className="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center mx-auto mb-5 text-cyan-400 group-hover:scale-110 transition-transform">
+              <Phone size={26} />
             </div>
-            <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider mb-2">
+            <h3 className="text-base font-semibold text-white/60 uppercase tracking-wider mb-3">
               Phone
             </h3>
-            <p className="text-lg font-bold text-cyan-300 neon-text">
+            <p className="text-2xl font-bold text-cyan-300 neon-text">
               +91 98951 68851
             </p>
           </motion.a>
@@ -120,15 +120,15 @@ export default function FooterSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="glass-bright rounded-2xl p-6 neon-border card-3d group text-center"
+            className="glass-bright rounded-2xl p-8 neon-border card-3d group text-center"
           >
-            <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mx-auto mb-4 text-blue-400 group-hover:scale-110 transition-transform">
-              <Mail size={22} />
+            <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mx-auto mb-5 text-blue-400 group-hover:scale-110 transition-transform">
+              <Mail size={26} />
             </div>
-            <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider mb-2">
+            <h3 className="text-base font-semibold text-white/60 uppercase tracking-wider mb-3">
               Email
             </h3>
-            <p className="text-lg font-bold text-blue-300 neon-text-blue">
+            <p className="text-2xl font-bold text-blue-300 neon-text-blue">
               reach.trion@gmail.com
             </p>
           </motion.a>
@@ -138,15 +138,15 @@ export default function FooterSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="glass-bright rounded-2xl p-6 neon-border card-3d group text-center"
+            className="glass-bright rounded-2xl p-8 neon-border card-3d group text-center"
           >
-            <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mx-auto mb-4 text-purple-400 group-hover:scale-110 transition-transform">
-              <MapPin size={22} />
+            <div className="w-14 h-14 rounded-xl bg-purple-500/10 flex items-center justify-center mx-auto mb-5 text-purple-400 group-hover:scale-110 transition-transform">
+              <MapPin size={26} />
             </div>
-            <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider mb-2">
+            <h3 className="text-base font-semibold text-white/60 uppercase tracking-wider mb-3">
               Headquarters
             </h3>
-            <p className="text-sm font-medium text-white/50">
+            <p className="text-lg font-medium text-white/50">
               Thiruvananthapuram, Kerala
             </p>
           </motion.div>
@@ -157,35 +157,35 @@ export default function FooterSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="glass rounded-2xl p-8 neon-border"
+          className="glass rounded-2xl p-10 neon-border"
         >
-          <h3 className="text-lg font-bold text-white mb-6 text-center">
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">
             Our Locations
           </h3>
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
-                <MapPin size={16} />
+          <div className="grid sm:grid-cols-2 gap-8">
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 shrink-0 mt-1">
+                <MapPin size={20} />
               </div>
               <div>
-                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-1">
+                <p className="text-sm font-semibold text-white/40 uppercase tracking-wider mb-2">
                   Office 1
                 </p>
-                <p className="text-sm text-white/60 leading-relaxed">
+                <p className="text-base text-white/60 leading-relaxed">
                   Oppo. TLRA 69, Thoppil Lane, Kumarapuram,
                   Thiruvananthapuram - 695011
                 </p>
               </div>
             </div>
-            <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
-                <MapPin size={16} />
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 mt-1">
+                <MapPin size={20} />
               </div>
               <div>
-                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-1">
+                <p className="text-sm font-semibold text-white/40 uppercase tracking-wider mb-2">
                   Office 2
                 </p>
-                <p className="text-sm text-white/60 leading-relaxed">
+                <p className="text-base text-white/60 leading-relaxed">
                   52, Poonthi Road, Kumarapuram,
                   Thiruvananthapuram - 695011
                 </p>
@@ -200,11 +200,11 @@ export default function FooterSection() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white font-black text-xs">
               T
             </div>
-            <span className="text-sm font-bold text-white/60">
+            <span className="text-lg font-bold text-white/60">
               Trion <span className="text-cyan-400">Informaatique</span>
             </span>
           </div>
-          <p className="text-xs text-white/20">
+          <p className="text-sm text-white/20">
             &copy; {new Date().getFullYear()} Trion Informaatique. All rights reserved.
           </p>
         </div>

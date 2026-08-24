@@ -37,7 +37,7 @@ export default function Catalog() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-6xl font-black tracking-tight text-white mb-4"
+            className="text-5xl sm:text-7xl font-black tracking-tight text-white mb-6"
           >
             Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
@@ -48,7 +48,7 @@ export default function Catalog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-white/40 max-w-lg mx-auto mb-10"
+            className="text-xl text-white/40 max-w-lg mx-auto mb-10"
           >
             Browse our full range of technology solutions. Select any service to
             learn more about what we offer.
@@ -62,7 +62,7 @@ export default function Catalog() {
             className="max-w-lg mx-auto relative"
           >
             <Search
-              size={18}
+              size={20}
               className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30"
             />
             <input
@@ -70,7 +70,7 @@ export default function Catalog() {
               placeholder="Search services..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full glass-bright rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-white/25 outline-none focus:ring-1 focus:ring-cyan-500/40 transition-shadow"
+              className="w-full glass-bright rounded-xl pl-12 pr-4 py-4 text-lg text-white placeholder:text-white/25 outline-none focus:ring-1 focus:ring-cyan-500/40 transition-shadow"
             />
           </motion.div>
 
@@ -85,7 +85,7 @@ export default function Catalog() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                   activeCategory === cat
                     ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
                     : "glass text-white/40 hover:text-white/60 border border-transparent"
@@ -105,7 +105,7 @@ export default function Catalog() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center text-white/30 py-20"
+              className="text-center text-white/30 py-20 text-lg"
             >
               No services match your search. Try a different term or category.
             </motion.p>
@@ -133,23 +133,23 @@ export default function Catalog() {
                       />
                       <div className="relative z-10">
                         <div
-                          className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-5 ${service.iconColor} group-hover:scale-110 transition-transform duration-300`}
+                          className={`w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center mb-5 ${service.iconColor} group-hover:scale-110 transition-transform duration-300`}
                         >
-                          <Icon size={24} />
+                          <Icon size={28} />
                         </div>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-white/25 mb-2 block">
+                        <span className="text-xs font-bold uppercase tracking-widest text-white/25 mb-2 block">
                           {service.category}
                         </span>
-                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
                           {service.title}
                         </h3>
-                        <p className="text-sm text-white/35 leading-relaxed mb-5">
+                        <p className="text-base text-white/35 leading-relaxed mb-6">
                           {service.summary}
                         </p>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400/70 group-hover:text-cyan-300 transition-colors">
+                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400/70 group-hover:text-cyan-300 transition-colors">
                           View details
                           <ArrowRight
-                            size={12}
+                            size={14}
                             className="group-hover:translate-x-1 transition-transform"
                           />
                         </span>

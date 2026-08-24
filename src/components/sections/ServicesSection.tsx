@@ -36,31 +36,31 @@ function ServiceCard({
 
         <div className="relative z-10">
           <div
-            className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-5 ${service.iconColor} group-hover:scale-110 transition-transform duration-300`}
+            className={`w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center mb-5 ${service.iconColor} group-hover:scale-110 transition-transform duration-300`}
           >
-            <Icon size={24} />
+            <Icon size={28} />
           </div>
 
-          <span className="text-[10px] font-bold uppercase tracking-widest text-white/25 mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-white/25 mb-2 block">
             {service.category}
           </span>
-          <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-300 transition-colors">
+          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
             {service.title}
           </h3>
           {service.subtitle && (
-            <p className="text-sm font-medium text-cyan-400/70 mb-3">
+            <p className="text-base font-medium text-cyan-400/70 mb-3">
               {service.subtitle}
             </p>
           )}
 
-          <p className="text-sm text-white/40 leading-relaxed mt-3 mb-4">
+          <p className="text-base text-white/40 leading-relaxed mt-3 mb-5">
             {service.summary}
           </p>
 
-          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400/60 group-hover:text-cyan-300 transition-colors">
+          <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400/60 group-hover:text-cyan-300 transition-colors">
             View details
             <ArrowRight
-              size={12}
+              size={14}
               className="group-hover:translate-x-1 transition-transform"
             />
           </span>
@@ -83,7 +83,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4"
+            className="text-5xl sm:text-6xl font-black text-white tracking-tight mb-6"
           >
             Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
@@ -94,7 +94,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white/40 max-w-xl mx-auto mb-8"
+            className="text-lg text-white/40 max-w-xl mx-auto mb-8"
           >
             Explore our comprehensive suite of technology solutions designed to
             transform and elevate your business. Select any service to learn
@@ -107,10 +107,10 @@ export default function ServicesSection() {
           >
             <Link
               to="/catalog"
-              className="inline-flex items-center gap-2 glass px-5 py-2.5 rounded-xl text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors neon-border"
+              className="inline-flex items-center gap-2 glass px-6 py-3 rounded-xl text-base font-semibold text-cyan-400 hover:text-cyan-300 transition-colors neon-border"
             >
               View all services
-              <ArrowRight size={14} />
+              <ArrowRight size={16} />
             </Link>
           </motion.div>
         </div>

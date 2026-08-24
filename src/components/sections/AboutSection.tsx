@@ -66,11 +66,11 @@ export default function AboutSection() {
             </div>
 
             {/* Decorative floating badge */}
-            <div className="relative z-10 glass-bright rounded-2xl p-6 neon-border animate-float">
-              <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+            <div className="relative z-10 glass-bright rounded-2xl p-8 neon-border animate-float">
+              <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                 10+
               </div>
-              <div className="text-sm text-white/40 mt-1">Years of Excellence</div>
+              <div className="text-lg text-white/40 mt-1">Years of Excellence</div>
             </div>
           </div>
 
@@ -80,7 +80,7 @@ export default function AboutSection() {
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl font-black text-white mb-6 tracking-tight"
+              className="text-5xl sm:text-6xl font-black text-white mb-8 tracking-tight"
             >
               ABOUT{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
@@ -92,9 +92,9 @@ export default function AboutSection() {
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="glass rounded-2xl p-8 neon-border"
+              className="glass rounded-2xl p-10 neon-border"
             >
-              <p className="text-white/50 leading-relaxed text-base sm:text-lg">
+              <p className="text-white/50 leading-relaxed text-lg sm:text-xl">
                 Welcome to Trion Informaatique, your strategic partner in technology
                 innovation. With a dedicated team of experts, we excel in software
                 development and IT consulting. Committed to excellence, we stay ahead in

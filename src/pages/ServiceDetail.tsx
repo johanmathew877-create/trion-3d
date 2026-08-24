@@ -29,9 +29,9 @@ export default function ServiceDetail() {
         <div className="max-w-5xl mx-auto">
           <Link
             to="/catalog"
-            className="glass inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-white/60 hover:text-cyan-400 transition-colors"
+            className="glass inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-base font-medium text-white/60 hover:text-cyan-400 transition-colors"
           >
-            <ArrowLeft size={14} />
+            <ArrowLeft size={16} />
             Back to Services
           </Link>
         </div>
@@ -45,21 +45,21 @@ export default function ServiceDetail() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[11px] font-bold uppercase tracking-widest text-white/25 mb-4 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-white/25 mb-4 block">
               {service.category}
             </span>
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-5 mb-8">
               <div
-                className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center ${service.iconColor} neon-border`}
+                className={`w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center ${service.iconColor} neon-border`}
               >
-                <Icon size={28} />
+                <Icon size={32} />
               </div>
               <div>
-                <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+                <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight">
                   {service.title}
                 </h1>
                 {service.subtitle && (
-                  <p className="text-sm font-medium text-cyan-400/70 mt-1">
+                  <p className="text-lg font-medium text-cyan-400/70 mt-2">
                     {service.subtitle}
                   </p>
                 )}
@@ -71,7 +71,7 @@ export default function ServiceDetail() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-lg text-white/50 leading-relaxed max-w-3xl"
+            className="text-xl text-white/50 leading-relaxed max-w-3xl"
           >
             {service.description}
           </motion.p>
@@ -85,12 +85,12 @@ export default function ServiceDetail() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="glass-bright rounded-2xl p-8 sm:p-10 neon-border"
+            className="glass-bright rounded-2xl p-10 sm:p-12 neon-border"
           >
-            <h2 className="text-xl font-bold text-white mb-6">
+            <h2 className="text-3xl font-bold text-white mb-8">
               What You Get
             </h2>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-5">
               {service.features.map((feature, i) => (
                 <motion.div
                   key={feature}
@@ -99,10 +99,10 @@ export default function ServiceDetail() {
                   transition={{ duration: 0.5, delay: 0.4 + i * 0.06 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-6 h-6 rounded-md bg-cyan-500/10 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
-                    <Check size={14} />
+                  <div className="w-7 h-7 rounded-md bg-cyan-500/10 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
+                    <Check size={16} />
                   </div>
-                  <span className="text-sm text-white/50">{feature}</span>
+                  <span className="text-base text-white/50">{feature}</span>
                 </motion.div>
               ))}
             </div>
@@ -117,20 +117,20 @@ export default function ServiceDetail() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="glass rounded-2xl p-10 neon-border"
+            className="glass rounded-2xl p-12 neon-border"
           >
-            <h2 className="text-2xl font-bold text-white mb-3">
+            <h2 className="text-3xl font-bold text-white mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-white/40 mb-8 max-w-md mx-auto">
+            <p className="text-lg text-white/40 mb-8 max-w-md mx-auto">
               Talk to our team about how {service.title.toLowerCase()} can
               benefit your business.
             </p>
             <a
               href="tel:+919895168851"
-              className="glow-btn animate-pulse-glow inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-lg font-bold text-cyan-300 tracking-wide"
+              className="glow-btn animate-pulse-glow inline-flex items-center gap-3 px-10 py-5 rounded-2xl text-xl font-bold text-cyan-300 tracking-wide"
             >
-              <Phone size={20} />
+              <Phone size={22} />
               Call Us Now
             </a>
           </motion.div>
@@ -141,28 +141,28 @@ export default function ServiceDetail() {
       {suggestions.length > 0 && (
         <section className="relative pb-32 px-6">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-lg font-bold text-white mb-6">
+            <h3 className="text-2xl font-bold text-white mb-8">
               Explore More Services
             </h3>
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-3 gap-5">
               {suggestions.map((s) => {
                 const SIcon = s.icon;
                 return (
                   <Link
                     key={s.slug}
                     to={`/catalog/${s.slug}`}
-                    className="glass-bright rounded-xl p-5 neon-border card-3d group"
+                    className="glass-bright rounded-xl p-6 neon-border card-3d group"
                   >
                     <div
-                      className={`w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-3 ${s.iconColor} group-hover:scale-110 transition-transform`}
+                      className={`w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-4 ${s.iconColor} group-hover:scale-110 transition-transform`}
                     >
-                      <SIcon size={20} />
+                      <SIcon size={24} />
                     </div>
-                    <h4 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors mb-1">
+                    <h4 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
                       {s.title}
                     </h4>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-cyan-400/50 group-hover:text-cyan-300 transition-colors">
-                      Learn more <ArrowRight size={10} />
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-cyan-400/50 group-hover:text-cyan-300 transition-colors">
+                      Learn more <ArrowRight size={12} />
                     </span>
                   </Link>
                 );

@@ -21,7 +21,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight text-white mb-4">
+          <h1 className="text-6xl sm:text-7xl md:text-9xl font-black tracking-tight text-white mb-6">
             Trion{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
               Informaatique
@@ -33,7 +33,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-300 neon-text tracking-widest mb-8"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-300 neon-text tracking-widest mb-10"
         >
           Innovate. Transform. Thrive.
         </motion.p>
@@ -42,7 +42,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-base sm:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed mb-10"
+          className="text-lg sm:text-xl md:text-2xl text-white/50 max-w-3xl mx-auto leading-relaxed mb-12"
         >
           Trion Informaatique delivers a comprehensive suite of IT solutions for
           modern businesses, encompassing ERP software consulting, website design
@@ -58,16 +58,16 @@ export default function HeroSection() {
         >
           <Link
             to="/catalog"
-            className="glow-btn animate-pulse-glow inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-lg font-bold text-cyan-300 tracking-wide"
+            className="glow-btn animate-pulse-glow inline-flex items-center gap-3 px-10 py-5 rounded-2xl text-xl font-bold text-cyan-300 tracking-wide"
           >
             Explore Our Services
-            <ArrowRight size={18} />
+            <ArrowRight size={20} />
           </Link>
           <a
             href="tel:+919895168851"
-            className="glass inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-base font-semibold text-white/60 hover:text-white transition-colors"
+            className="glass inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-lg font-semibold text-white/60 hover:text-white transition-colors"
           >
-            <Phone size={16} />
+            <Phone size={18} />
             +91 98951 68851
           </a>
         </motion.div>
