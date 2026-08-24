@@ -1,4 +1,5 @@
 import ParticleField from "@/components/three/ParticleField";
+import DataGlobe from "@/components/three/DataGlobe";
 import Navbar from "@/components/sections/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
@@ -16,6 +17,12 @@ export default function Landing() {
 
       {/* Hero */}
       <HeroSection />
+
+      {/* Internet Globe Section */}
+      <section className="relative h-[70vh] overflow-hidden">
+        <DataGlobe />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none z-[1]" />
+      </section>
 
       {/* Divider */}
       <div className="max-w-6xl mx-auto px-6">
