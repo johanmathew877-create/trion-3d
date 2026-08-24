@@ -75,7 +75,7 @@ export default function ServicesSection() {
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="services" className="relative py-32 px-6">
+    <section id="services" className="relative py-32 px-6" style={{ zIndex: 10 }}>
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-16">

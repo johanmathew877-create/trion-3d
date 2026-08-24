@@ -6,7 +6,7 @@ export default function AboutSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="relative py-32 px-6">
+    <section id="about" className="relative py-32 px-6" style={{ zIndex: 10 }}>
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 60 }}

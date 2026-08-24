@@ -213,7 +213,7 @@ export default function ParticleField() {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10" style={{ pointerEvents: "none" }}>
+    <div className="fixed inset-0" style={{ zIndex: 1, pointerEvents: "none" }}>
       <Canvas
         camera={{ position: [0, 0, 12], fov: 60 }}
         gl={{ antialias: true, alpha: true }}

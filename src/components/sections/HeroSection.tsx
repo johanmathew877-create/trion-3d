@@ -9,9 +9,8 @@ export default function HeroSection() {
 
   useEffect(() => {
     const onScroll = () => {
-      const fadeEnd = window.innerHeight * 0.4;
-      const opacity = Math.max(0, 1 - window.scrollY / fadeEnd);
-      setTextOpacity(opacity);
+      const fadeEnd = window.innerHeight * 0.5;
+      setTextOpacity(Math.max(0, 1 - window.scrollY / fadeEnd));
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -19,26 +18,25 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* 3D Sphere — fixed fullscreen backdrop, always visible */}
-      <div className="fixed inset-0 z-0" style={{ pointerEvents: "none" }}>
+      {/* 3D Sphere — fixed fullscreen, always visible, above particles */}
+      <div
+        className="fixed inset-0 pointer-events-none"
+        style={{ zIndex: 5 }}
+      >
         <HeroSphere />
       </div>
 
-      {/* Hero text content — scrollable, fades out */}
-      <section className="relative z-[1]" style={{ height: "300vh" }}>
+      {/* Hero text — fades as you scroll */}
+      <section className="relative" style={{ zIndex: 10 }}>
         <div
-          className="sticky top-0 h-screen flex items-center justify-center"
+          className="min-h-screen flex items-center justify-center"
           style={{ opacity: textOpacity }}
         >
           <div className="text-center px-6 max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1,
-                delay: 0.2,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
               <h1 className="text-6xl sm:text-7xl md:text-9xl font-black tracking-tight text-white mb-6">
                 Trion{" "}
@@ -51,11 +49,7 @@ export default function HeroSection() {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1,
-                delay: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-300 neon-text tracking-widest mb-10"
             >
               Innovate. Transform. Thrive.
@@ -64,11 +58,7 @@ export default function HeroSection() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1,
-                delay: 0.8,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="text-lg sm:text-xl md:text-2xl text-white/50 max-w-3xl mx-auto leading-relaxed mb-12"
             >
               Trion Informaatique delivers a comprehensive suite of IT solutions
@@ -81,11 +71,7 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.8,
-                delay: 1.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Link

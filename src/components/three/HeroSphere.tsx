@@ -1,11 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 
-/**
- * Sphere starts at the TOP of the screen.
- * As scroll progress goes 0→1 it DESCENDS to the bottom,
- * curving left→right→left→right in a smooth sine wave.
- */
 function TechSphere({ scrollProgress }: { scrollProgress: number }) {
   const meshRef = useRef<any>(null!);
   const wireRef = useRef<any>(null!);
@@ -19,11 +14,10 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
   useFrame((state) => {
     const t = state.clock.elapsedTime;
 
-    // Target position: descend + sine curve
-    const targetY = 5 - scrollProgress * 12;
-    const targetX = Math.sin(scrollProgress * Math.PI * 6) * 3.5;
+    // Descend top→bottom across full page, curving left-right
+    const targetY = 5 - scrollProgress * 14;
+    const targetX = Math.sin(scrollProgress * Math.PI * 8) * 3.5;
 
-    // Smooth lerp
     tx.current += (targetX - tx.current) * 0.08;
     ty.current += (targetY - ty.current) * 0.08;
 
@@ -93,10 +87,13 @@ export default function HeroSphere() {
 
   useEffect(() => {
     const onScroll = () => {
-      const maxScroll = window.innerHeight * 2.5;
-      setScrollProgress(Math.min(window.scrollY / maxScroll, 1));
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (maxScroll > 0) {
+        setScrollProgress(Math.min(window.scrollY / maxScroll, 1));
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
