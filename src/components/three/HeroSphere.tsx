@@ -14,12 +14,15 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
   useFrame((state) => {
     const t = state.clock.elapsedTime;
 
-    // Descend top→bottom across full page, curving left-right
-    const targetY = 5 - scrollProgress * 14;
-    const targetX = Math.sin(scrollProgress * Math.PI * 8) * 3.5;
+    // Smooth sine curve: sphere stays within visible viewport the whole time
+    // Y oscillates gently between +2 and -2 (always on screen)
+    // X sweeps left-right with4 full cycles across the page
+    const targetX = Math.sin(scrollProgress * Math.PI * 8) * 3.2;
+    const targetY = Math.sin(scrollProgress * Math.PI * 4) * 2;
 
-    tx.current += (targetX - tx.current) * 0.08;
-    ty.current += (targetY - ty.current) * 0.08;
+    // Smooth lerp for fluid, buttery motion
+    tx.current += (targetX - tx.current) * 0.04;
+    ty.current += (targetY - ty.current) * 0.04;
 
     if (groupRef.current) {
       groupRef.current.position.x = tx.current;
@@ -27,31 +30,32 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
     }
 
     if (meshRef.current) {
-      meshRef.current.rotation.x = t * 0.2;
-      meshRef.current.rotation.y = t * 0.3;
+      meshRef.current.rotation.x = t * 0.18;
+      meshRef.current.rotation.y = t * 0.25;
     }
     if (wireRef.current) {
-      wireRef.current.rotation.x = -t * 0.12;
-      wireRef.current.rotation.y = -t * 0.18;
+      wireRef.current.rotation.x = -t * 0.1;
+      wireRef.current.rotation.y = -t * 0.15;
     }
     if (ring1Ref.current) {
-      ring1Ref.current.rotation.z = t * 0.35;
+      ring1Ref.current.rotation.z = t * 0.3;
       ring1Ref.current.rotation.x = Math.PI / 3;
     }
     if (ring2Ref.current) {
-      ring2Ref.current.rotation.z = -t * 0.25;
+      ring2Ref.current.rotation.z = -t * 0.2;
       ring2Ref.current.rotation.y = Math.PI / 4;
     }
   });
 
   return (
     <group ref={groupRef}>
+      {/* Inner glowing sphere */}
       <mesh ref={meshRef}>
         <icosahedronGeometry args={[1.8, 3]} />
         <meshStandardMaterial
           color={0x00dcff}
           emissive={0x00dcff}
-          emissiveIntensity={1.0}
+          emissiveIntensity={1.2}
           metalness={0.7}
           roughness={0.3}
           transparent
@@ -59,6 +63,7 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
         />
       </mesh>
 
+      {/* Wireframe shell */}
       <mesh ref={wireRef}>
         <icosahedronGeometry args={[2.4, 1]} />
         <meshBasicMaterial
@@ -69,11 +74,13 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
         />
       </mesh>
 
+      {/* Orbital ring 1 */}
       <mesh ref={ring1Ref}>
         <torusGeometry args={[3.0, 0.025, 16, 100]} />
         <meshBasicMaterial color={0x1e5aff} transparent opacity={0.6} />
       </mesh>
 
+      {/* Orbital ring 2 */}
       <mesh ref={ring2Ref}>
         <torusGeometry args={[3.5, 0.02, 16, 100]} />
         <meshBasicMaterial color={0x00aaff} transparent opacity={0.4} />
@@ -112,10 +119,10 @@ export default function HeroSphere() {
         }}
       >
         <TechSphere scrollProgress={scrollProgress} />
-        <pointLight position={[5, 5, 5]} intensity={2} color={0x00dcff} />
-        <pointLight position={[-5, -3, 3]} intensity={1} color={0x1e5aff} />
-        <pointLight position={[0, -2, 2]} intensity={0.8} color={0x00ffff} />
-        <ambientLight intensity={0.3} />
+        <pointLight position={[5, 5, 5]} intensity={2.5} color={0x00dcff} />
+        <pointLight position={[-5, -3, 3]} intensity={1.2} color={0x1e5aff} />
+        <pointLight position={[0, 0, 4]} intensity={1} color={0x00ffff} />
+        <ambientLight intensity={0.35} />
       </Canvas>
     </div>
   );

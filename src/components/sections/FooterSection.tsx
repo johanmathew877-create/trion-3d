@@ -69,7 +69,7 @@ export default function FooterSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <footer className="relative py-24 px-6 overflow-hidden" style={{ zIndex: 10 }}>
+    <footer className="relative py-24 px-6" style={{ zIndex: 10 }}>
       {/* Network background */}
       <NetworkNodes />
 
