@@ -38,7 +38,7 @@ export default function ServiceDetail() {
       </div>
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 px-6">
+      <section className="relative pt-32 pb-20 px-6" style={{ zIndex: 10 }}>
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -79,7 +79,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Features */}
-      <section className="relative pb-20 px-6">
+      <section className="relative pb-20 px-6" style={{ zIndex: 10 }}>
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -111,7 +111,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* CTA */}
-      <section className="relative pb-20 px-6">
+      <section className="relative pb-20 px-6" style={{ zIndex: 10 }}>
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -139,7 +139,7 @@ export default function ServiceDetail() {
 
       {/* Related services */}
       {suggestions.length > 0 && (
-        <section className="relative pb-32 px-6">
+        <section className="relative pb-32 px-6" style={{ zIndex: 10 }}>
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-8">
               Explore More Services

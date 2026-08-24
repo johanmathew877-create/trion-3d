@@ -31,7 +31,7 @@ export default function Catalog() {
       <ParticleField />
 
       {/* Header */}
-      <section className="relative pt-32 pb-16 px-6">
+      <section className="relative pt-32 pb-16 px-6" style={{ zIndex: 10 }}>
         <div className="max-w-5xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -99,7 +99,7 @@ export default function Catalog() {
       </section>
 
       {/* Results */}
-      <section className="relative pb-32 px-6">
+      <section className="relative pb-32 px-6" style={{ zIndex: 10 }}>
         <div className="max-w-6xl mx-auto">
           {filtered.length === 0 ? (
             <motion.p
