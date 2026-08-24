@@ -83,7 +83,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-5xl sm:text-6xl font-black text-white tracking-tight mb-6"
+            className="text-5xl sm:text-6xl font-black text-white tracking-tight mb-6 neon-text"
           >
             Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">

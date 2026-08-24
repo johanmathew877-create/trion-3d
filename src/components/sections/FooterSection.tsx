@@ -79,7 +79,7 @@ export default function FooterSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl sm:text-6xl font-black text-white tracking-tight mb-6">
+          <h2            className="text-5xl sm:text-6xl font-black text-white tracking-tight mb-6 neon-text">
             Get in{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
               Touch

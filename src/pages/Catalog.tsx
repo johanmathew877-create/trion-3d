@@ -34,10 +34,10 @@ export default function Catalog() {
       <section className="relative pt-32 pb-16 px-6" style={{ zIndex: 10 }}>
         <div className="max-w-5xl mx-auto text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl sm:text-7xl font-black tracking-tight text-white mb-6"
+            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="text-6xl sm:text-8xl font-black tracking-tight text-white mb-6 neon-text"
           >
             Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
@@ -48,7 +48,7 @@ export default function Catalog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-xl text-white/40 max-w-lg mx-auto mb-10"
+            className="text-xl sm:text-2xl text-white/40 max-w-lg mx-auto mb-10 font-medium"
           >
             Browse our full range of technology solutions. Select any service to
             learn more about what we offer.
@@ -62,7 +62,7 @@ export default function Catalog() {
             className="max-w-lg mx-auto relative"
           >
             <Search
-              size={20}
+              size={22}
               className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30"
             />
             <input
@@ -70,7 +70,7 @@ export default function Catalog() {
               placeholder="Search services..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full glass-bright rounded-xl pl-12 pr-4 py-4 text-lg text-white placeholder:text-white/25 outline-none focus:ring-1 focus:ring-cyan-500/40 transition-shadow"
+              className="w-full glass-bright rounded-xl pl-12 pr-4 py-4 text-xl text-white placeholder:text-white/25 outline-none focus:ring-1 focus:ring-cyan-500/40 transition-shadow font-medium"
             />
           </motion.div>
 
@@ -105,7 +105,7 @@ export default function Catalog() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center text-white/30 py-20 text-lg"
+              className="text-center text-white/30 py-20 text-xl"
             >
               No services match your search. Try a different term or category.
             </motion.p>
@@ -116,10 +116,10 @@ export default function Catalog() {
                 return (
                   <motion.div
                     key={service.slug}
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{
-                      duration: 0.6,
+                      duration: 0.7,
                       delay: i * 0.08,
                       ease: [0.22, 1, 0.36, 1],
                     }}
@@ -143,10 +143,10 @@ export default function Catalog() {
                         <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
                           {service.title}
                         </h3>
-                        <p className="text-base text-white/35 leading-relaxed mb-6">
+                        <p className="text-lg text-white/35 leading-relaxed mb-6 font-medium">
                           {service.summary}
                         </p>
-                        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400/70 group-hover:text-cyan-300 transition-colors">
+                        <span className="inline-flex items-center gap-1.5 text-base font-semibold text-cyan-400/70 group-hover:text-cyan-300 transition-colors">
                           View details
                           <ArrowRight
                             size={14}

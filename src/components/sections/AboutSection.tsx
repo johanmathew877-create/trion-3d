@@ -78,7 +78,7 @@ export default function AboutSection() {
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl sm:text-6xl font-black text-white mb-8 tracking-tight"
+              className="text-5xl sm:text-6xl font-black text-white mb-8 tracking-tight neon-text"
             >
               ABOUT{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">

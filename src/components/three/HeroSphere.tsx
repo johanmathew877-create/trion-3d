@@ -14,15 +14,12 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
   useFrame((state) => {
     const t = state.clock.elapsedTime;
 
-    // Smooth sine curve: sphere stays within visible viewport the whole time
-    // Y oscillates gently between +2 and -2 (always on screen)
-    // X sweeps left-right with4 full cycles across the page
     const targetX = Math.sin(scrollProgress * Math.PI * 8) * 3.2;
     const targetY = Math.sin(scrollProgress * Math.PI * 4) * 2;
 
-    // Smooth lerp for fluid, buttery motion
-    tx.current += (targetX - tx.current) * 0.04;
-    ty.current += (targetY - ty.current) * 0.04;
+    // Ultra-smooth lerp — catches up gently with no jitter
+    tx.current += (targetX - tx.current) * 0.035;
+    ty.current += (targetY - ty.current) * 0.035;
 
     if (groupRef.current) {
       groupRef.current.position.x = tx.current;
@@ -49,7 +46,6 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
 
   return (
     <group ref={groupRef}>
-      {/* Inner glowing sphere */}
       <mesh ref={meshRef}>
         <icosahedronGeometry args={[1.8, 3]} />
         <meshStandardMaterial
@@ -63,7 +59,6 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
         />
       </mesh>
 
-      {/* Wireframe shell */}
       <mesh ref={wireRef}>
         <icosahedronGeometry args={[2.4, 1]} />
         <meshBasicMaterial
@@ -74,13 +69,11 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
         />
       </mesh>
 
-      {/* Orbital ring 1 */}
       <mesh ref={ring1Ref}>
         <torusGeometry args={[3.0, 0.025, 16, 100]} />
         <meshBasicMaterial color={0x1e5aff} transparent opacity={0.6} />
       </mesh>
 
-      {/* Orbital ring 2 */}
       <mesh ref={ring2Ref}>
         <torusGeometry args={[3.5, 0.02, 16, 100]} />
         <meshBasicMaterial color={0x00aaff} transparent opacity={0.4} />
@@ -94,7 +87,8 @@ export default function HeroSphere() {
 
   useEffect(() => {
     const onScroll = () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
       if (maxScroll > 0) {
         setScrollProgress(Math.min(window.scrollY / maxScroll, 1));
       }
@@ -108,7 +102,13 @@ export default function HeroSphere() {
     <div style={{ width: "100vw", height: "100vh", position: "relative" }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 50 }}
-        gl={{ antialias: true, alpha: true }}
+        dpr={[1, 2]}
+        gl={{
+          antialias: true,
+          alpha: true,
+          powerPreference: "high-performance",
+        }}
+        frameloop="always"
         style={{
           position: "absolute",
           top: 0,
