@@ -95,12 +95,12 @@ export default function AboutSection() {
               className="glass rounded-2xl p-8 neon-border"
             >
               <p className="text-white/50 leading-relaxed text-base sm:text-lg">
-                Welcome to Trion Informatique, your strategic partner in technology
+                Welcome to Trion Informaatique, your strategic partner in technology
                 innovation. With a dedicated team of experts, we excel in software
                 development and IT consulting. Committed to excellence, we stay ahead in
-                technology, turning challenges into opportunities. Transparent, integral,
-                and client-focused, Trion Informatique is where innovation meets results.
-                Join us in shaping the future of technology -{" "}
+                technology, turning challenges into opportunities. Transparent, reliable,
+                and client-focused, Trion Informaatique is where innovation meets
+                results. Join us in shaping the future of technology —{" "}
                 <span className="text-cyan-400 font-semibold neon-text">
                   Innovate. Transform. Thrive.
                 </span>

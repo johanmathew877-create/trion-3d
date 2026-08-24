@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Phone } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 import HeroSphere from "@/components/three/HeroSphere";
 
 export default function HeroSection() {
@@ -23,7 +24,7 @@ export default function HeroSection() {
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight text-white mb-4">
             Trion{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-              Informatique
+              Informaatique
             </span>
           </h1>
         </motion.div>
@@ -43,23 +44,31 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-base sm:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed mb-10"
         >
-          Trion Informatique offers a comprehensive suite of IT solutions for businesses,
-          encompassing ERP software consulting, website design and development, social media
-          marketing, and e-commerce setup. We also provide business software installation and
-          support.
+          Trion Informaatique delivers a comprehensive suite of IT solutions for
+          modern businesses, encompassing ERP software consulting, website design
+          and development, digital marketing, and e-commerce setup. We also
+          provide business software installation, training, and ongoing support.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
-            href="tel:+919895168851"
+          <Link
+            to="/catalog"
             className="glow-btn animate-pulse-glow inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-lg font-bold text-cyan-300 tracking-wide"
           >
-            <Phone size={20} />
-            Call Now
+            Explore Our Services
+            <ArrowRight size={18} />
+          </Link>
+          <a
+            href="tel:+919895168851"
+            className="glass inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-base font-semibold text-white/60 hover:text-white transition-colors"
+          >
+            <Phone size={16} />
+            +91 98951 68851
           </a>
         </motion.div>
       </div>

@@ -201,11 +201,11 @@ export default function FooterSection() {
               T
             </div>
             <span className="text-sm font-bold text-white/60">
-              Trion <span className="text-cyan-400">Informatique</span>
+              Trion <span className="text-cyan-400">Informaatique</span>
             </span>
           </div>
           <p className="text-xs text-white/20">
-            &copy; {new Date().getFullYear()} Trion Informatique. All rights reserved.
+            &copy; {new Date().getFullYear()} Trion Informaatique. All rights reserved.
           </p>
         </div>
       </div>

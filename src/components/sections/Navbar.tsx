@@ -1,24 +1,29 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 
 const menuItems = [
-  { label: "Business & Accounting Software", href: "#services" },
-  { label: "Web Designing", href: "#services" },
-  { label: "Digital Marketing", href: "#services" },
-  { label: "Web Application Development", href: "#services" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "/catalog" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   return (
     <motion.nav
@@ -33,26 +38,36 @@ export default function Navbar() {
     >
       <div className="flex items-center justify-between px-6">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 shrink-0">
+        <Link to="/" className="flex items-center gap-3 shrink-0">
           <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white font-black text-sm tracking-tight">
             T
           </div>
           <span className="text-base font-bold tracking-tight text-white hidden sm:block">
-            Trion <span className="text-cyan-400">Informatique</span>
+            Trion <span className="text-cyan-400">Informaatique</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop menu */}
         <div className="hidden lg:flex items-center gap-1">
-          {menuItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="px-3 py-1.5 text-[13px] font-medium text-white/60 hover:text-cyan-400 transition-colors rounded-lg hover:bg-white/5"
-            >
-              {item.label}
-            </a>
-          ))}
+          {menuItems.map((item) =>
+            item.href.startsWith("/") && !item.href.startsWith("/#") ? (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="px-3 py-1.5 text-[13px] font-medium text-white/60 hover:text-cyan-400 transition-colors rounded-lg hover:bg-white/5"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className="px-3 py-1.5 text-[13px] font-medium text-white/60 hover:text-cyan-400 transition-colors rounded-lg hover:bg-white/5"
+              >
+                {item.label}
+              </a>
+            )
+          )}
         </div>
 
         {/* CTA + Mobile toggle */}
@@ -85,16 +100,27 @@ export default function Navbar() {
             className="lg:hidden overflow-hidden"
           >
             <div className="px-4 pb-4 pt-2 flex flex-col gap-1 border-t border-white/5 mt-3">
-              {menuItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="px-3 py-2 text-sm font-medium text-white/60 hover:text-cyan-400 transition-colors rounded-lg hover:bg-white/5"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {menuItems.map((item) =>
+                item.href.startsWith("/") && !item.href.startsWith("/#") ? (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="px-3 py-2 text-sm font-medium text-white/60 hover:text-cyan-400 transition-colors rounded-lg hover:bg-white/5"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="px-3 py-2 text-sm font-medium text-white/60 hover:text-cyan-400 transition-colors rounded-lg hover:bg-white/5"
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
             </div>
           </motion.div>
         )}

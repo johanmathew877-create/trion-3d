@@ -41,7 +41,9 @@ export default function Landing() {
       <ServicesSection />
 
       {/* Footer / Contact */}
-      <FooterSection />
+      <div id="contact">
+        <FooterSection />
+      </div>
     </div>
   );
 }
