@@ -229,6 +229,34 @@ html {
   animation: pulseGlow 3s ease-in-out infinite;
 }
 
+/* Shooting stars */
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(var(--angle));
+    opacity: 1;
+    width: 0;
+  }
+  30% {
+    opacity: 1;
+    width: var(--length);
+  }
+  100% {
+    transform: translateX(calc(var(--length) * 3)) translateY(calc(var(--length) * 1.5)) rotate(var(--angle));
+    opacity: 0;
+    width: 0;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00dcff, #ffffff, #00dcff, transparent);
+  border-radius: 999px;
+  animation: shoot linear infinite;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px rgba(0, 220, 255, 0.6)) drop-shadow(0 0 8px rgba(0, 220, 255, 0.3));
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;

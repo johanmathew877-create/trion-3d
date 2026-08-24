@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Check, Phone, ArrowRight } from "lucide-react";
 import { getServiceBySlug, services } from "@/lib/services";
 import ParticleField from "@/components/three/ParticleField";
+import ShootingStars from "@/components/three/ShootingStars";
 import NotFound from "./NotFound";
 
 export default function ServiceDetail() {
@@ -23,6 +24,7 @@ export default function ServiceDetail() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <ParticleField />
+      <ShootingStars />
 
       {/* Top bar */}
       <div className="fixed top-0 left-0 right-0 z-50 pt-4 px-6">
