@@ -1,15 +1,41 @@
-import { useRef, useMemo } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-function TechSphere() {
+/**
+ * Scroll progress 0→1 over 3 viewport heights.
+ * The sphere traces a figure-8 / figure-curve:
+ *   X: oscillates sin(progress * 4π)  →  edge, middle, other edge, repeat
+ *   Y: oscillates cos(progress * 4π)  →  sweeps down, back up, repeats
+ * This gives ~2 full loops across the scroll range.
+ */
+function TechSphere({ scrollProgress }: { scrollProgress: number }) {
   const meshRef = useRef<THREE.Mesh>(null!);
   const wireRef = useRef<THREE.Mesh>(null!);
   const ringRef = useRef<THREE.Mesh>(null!);
   const ring2Ref = useRef<THREE.Mesh>(null!);
+  const groupRef = useRef<THREE.Group>(null!);
+
+  // Smooth interpolation targets
+  const targetPos = useRef({ x: 0, y: 0 });
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
+
+    // --- Scroll-driven curved path ---
+    // 2 full oscillations across the scroll range
+    const angle = scrollProgress * Math.PI * 4;
+    targetPos.current.x = Math.sin(angle) * 3.8;   // left → right → left …
+    targetPos.current.y = -Math.abs(Math.cos(angle)) * 3; // dips down, returns
+
+    if (groupRef.current) {
+      groupRef.current.position.x +=
+        (targetPos.current.x - groupRef.current.position.x) * 0.06;
+      groupRef.current.position.y +=
+        (targetPos.current.y - groupRef.current.position.y) * 0.06;
+    }
+
+    // --- Self-rotation (time-driven) ---
     if (meshRef.current) {
       meshRef.current.rotation.x = t * 0.15;
       meshRef.current.rotation.y = t * 0.2;
@@ -31,7 +57,7 @@ function TechSphere() {
   });
 
   return (
-    <group>
+    <group ref={groupRef}>
       {/* Inner glowing sphere */}
       <mesh ref={meshRef}>
         <icosahedronGeometry args={[1.8, 3]} />
@@ -43,7 +69,6 @@ function TechSphere() {
           roughness={0.2}
           transparent
           opacity={0.6}
-          wireframe={false}
         />
       </mesh>
 
@@ -74,6 +99,18 @@ function TechSphere() {
 }
 
 export default function HeroSphere() {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const maxScroll = window.innerHeight * 2.5;
+      const progress = Math.min(window.scrollY / maxScroll, 1);
+      setScrollProgress(progress);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="w-full h-full absolute inset-0">
       <Canvas
@@ -81,7 +118,7 @@ export default function HeroSphere() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent" }}
       >
-        <TechSphere />
+        <TechSphere scrollProgress={scrollProgress} />
         <pointLight position={[5, 5, 5]} intensity={1} color={0x00dcff} />
         <pointLight position={[-5, -3, 3]} intensity={0.5} color={0x1e5aff} />
         <ambientLight intensity={0.15} />
