@@ -36,7 +36,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h1 className="text-6xl sm:text-7xl md:text-9xl font-black tracking-tight text-white mb-6">
+              <h1 className="text-6xl sm:text-7xl md:text-9xl font-black tracking-tight text-white mb-6 neon-text">
                 Trion{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                   Informatique

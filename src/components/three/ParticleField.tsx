@@ -1,4 +1,4 @@
-import { useRef, useMemo, useState, useEffect } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
@@ -85,7 +85,7 @@ interface LineConfig {
   color: string;
 }
 
-function FlowLines({ scrollY }: { scrollY: number }) {
+function FlowLines({ scrollRef }: { scrollRef: React.RefObject<number> }) {
   const groupRef = useRef<THREE.Group>(null!);
 
   const configs = useMemo<LineConfig[]>(() => {
@@ -93,7 +93,7 @@ function FlowLines({ scrollY }: { scrollY: number }) {
       const rand = () => Math.random();
       const hue = rand() > 0.5 ? "#00dcff" : "#1e5aff";
       return {
-        baseX: (i / LINE_COUNT) * 30 - 15, // spread across scene
+        baseX: (i / LINE_COUNT) * 30 - 15,
         speed: 0.3 + rand() * 0.6,
         amplitude: 1.5 + rand() * 3,
         phase: rand() * Math.PI * 2,
@@ -105,9 +105,8 @@ function FlowLines({ scrollY }: { scrollY: number }) {
 
   useFrame((state) => {
     if (!groupRef.current) return;
-    // Gentle drift so lines feel alive even without scrolling
     groupRef.current.position.y =
-      state.clock.elapsedTime * -0.3 + scrollY * 0.012;
+      state.clock.elapsedTime * -0.3 + scrollRef.current * 0.012;
   });
 
   return (
@@ -119,7 +118,7 @@ function FlowLines({ scrollY }: { scrollY: number }) {
           const t = s / SEGMENTS;
           const y = 15 - t * 30; // top to bottom of visible area
           // Horizontal offset increases with scroll, creating deeper curves
-          const scrollCurve = scrollY * 0.006;
+          const scrollCurve = scrollRef.current * 0.006;
           const x =
             cfg.baseX +
             Math.sin(t * Math.PI * 2 + cfg.phase + scrollCurve * cfg.speed) *
@@ -204,10 +203,10 @@ function GlowOrbs() {
 /* ── Export ──────────────────────────────────────────────────────── */
 
 export default function ParticleField() {
-  const [scrollY, setScrollY] = useState(0);
+  const scrollRef = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
+    const onScroll = () => { scrollRef.current = window.scrollY; };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -219,7 +218,7 @@ export default function ParticleField() {
         gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent" }}
       >
-        <FlowLines scrollY={scrollY} />
+        <FlowLines scrollRef={scrollRef} />
         <Particles />
         <WireframeMesh />
         <GlowOrbs />

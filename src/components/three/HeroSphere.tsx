@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 
-function TechSphere({ scrollProgress }: { scrollProgress: number }) {
+function TechSphere({ scrollRef }: { scrollRef: React.RefObject<number> }) {
   const meshRef = useRef<any>(null!);
   const wireRef = useRef<any>(null!);
   const ring1Ref = useRef<any>(null!);
@@ -13,11 +13,11 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
+    const sp = scrollRef.current; // always fresh
 
-    const targetX = Math.sin(scrollProgress * Math.PI * 8) * 3.2;
-    const targetY = Math.sin(scrollProgress * Math.PI * 4) * 2;
+    const targetX = Math.sin(sp * Math.PI * 8) * 3.2;
+    const targetY = Math.sin(sp * Math.PI * 4) * 2;
 
-    // Ultra-smooth lerp — catches up gently with no jitter
     tx.current += (targetX - tx.current) * 0.035;
     ty.current += (targetY - ty.current) * 0.035;
 
@@ -83,14 +83,14 @@ function TechSphere({ scrollProgress }: { scrollProgress: number }) {
 }
 
 export default function HeroSphere() {
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const scrollRef = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
       const maxScroll =
         document.documentElement.scrollHeight - window.innerHeight;
       if (maxScroll > 0) {
-        setScrollProgress(Math.min(window.scrollY / maxScroll, 1));
+        scrollRef.current = Math.min(window.scrollY / maxScroll, 1);
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -118,7 +118,7 @@ export default function HeroSphere() {
           background: "transparent",
         }}
       >
-        <TechSphere scrollProgress={scrollProgress} />
+        <TechSphere scrollRef={scrollRef} />
         <pointLight position={[5, 5, 5]} intensity={2.5} color={0x00dcff} />
         <pointLight position={[-5, -3, 3]} intensity={1.2} color={0x1e5aff} />
         <pointLight position={[0, 0, 4]} intensity={1} color={0x00ffff} />
