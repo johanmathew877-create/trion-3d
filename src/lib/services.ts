@@ -24,23 +24,25 @@ export interface ServiceItem {
 export const services: ServiceItem[] = [
   {
     slug: "business-accounting-software",
-    title: "Business & Accounting Software",
-    subtitle: "Powered by Busy",
+    title: "Business Accounting Software",
+    subtitle: "Powered by BUSY — Busy Trivandrum",
     icon: Calculator,
     gradient: "from-cyan-400/20 to-blue-600/20",
     iconColor: "text-cyan-400",
     category: "Software",
     summary:
-      "Streamline billing, inventory, and GST compliance with an enterprise-grade accounting platform built for growing businesses.",
+      "Boost your small business efficiency with BUSY Accounting Software — the ideal solution for streamlined billing, inventory management, and GST compliance.",
     description:
-      "Empower your small business with Busy Accounting Software, designed to simplify billing, inventory management, and GST compliance. As an authorized partner of Busy, we offer a cost-effective solution that ensures accuracy and saves you time. Backed by our unparalleled customer support and training programs, we are committed to delivering optimal solutions for your business needs, empowering your growth and productivity.",
+      "Empower your small business with Busy Accounting Software, designed to simplify billing, inventory management, and GST compliance. As an authorized sales and service partner of BUSY at Trivandrum, we offer cost-effective solutions that ensure accuracy and save you time. Backed by our unparalleled customer support and training programs, we are committed to delivering optimal solutions for your business needs, empowering your growth and productivity. BUSY is an integrated business accounting and management software for Micro, Small & Medium Enterprises (MSMEs). With over 600,000 licenses sold in over 20 countries, it is one of the leading business accounting software in India, South Asia, Middle East Asia, and Africa.",
     features: [
-      "Automated billing and invoicing",
-      "Real-time inventory tracking",
-      "Full GST compliance and reporting",
-      "Authorized Busy partner support",
-      "Comprehensive training programs",
-      "Cost-effective licensing",
+      "Financial Accounting — vouchers, ledgers, trial balance, balance sheets",
+      "Inventory Management — batch, serial number, parameter-wise tracking",
+      "Configurable Invoicing — party, item-wise and date-wise pricing",
+      "Comprehensive GST Module — billing to return filing, e-Way Bill & e-Invoice",
+      "Operations Management — indent, quotation, order, challan, payroll",
+      "Mobile App — access business data anywhere, anytime",
+      "Bill of Material & Production tracking",
+      "Multi-branch and multi-location support",
     ],
   },
   {
@@ -52,9 +54,9 @@ export const services: ServiceItem[] = [
     iconColor: "text-blue-400",
     category: "Development",
     summary:
-      "Custom browser-based applications that streamline daily workflows and bring your customers closer to your business.",
+      "Scalable and efficient browser applications that are user-friendly, innovative, and bring your customers closer.",
     description:
-      "Trion Informaatique creates scalable and efficient browser applications that are user-friendly and innovative. Take control of your daily work activities by commissioning a custom in-built application that makes your workflow enjoyable, interactive, and result-oriented. Our expert team can help you bring your customers and stakeholders closer through purpose-built digital tools.",
+      "Trion Informatique creates for you scalable and efficient browser applications, which are user-friendly and innovative. Get control on your daily work activities by creating custom inbuilt applications to make your workflow enjoyable, interactive, and result oriented. Our expert team can assist you to bring your customers and well-wishers closer through purpose-built digital tools.",
     features: [
       "Scalable cloud-hosted architecture",
       "Responsive, mobile-first design",
@@ -115,9 +117,9 @@ export const services: ServiceItem[] = [
     iconColor: "text-amber-400",
     category: "Design",
     summary:
-      "Visually compelling websites that reflect your brand identity and convert visitors into loyal customers.",
+      "Functional websites that enable your business to connect with customers, build relationships, and drive sales.",
     description:
-      "Let your pages reflect your true passion and project your brand and services with clarity. A well-designed website is more than an online brochure — it is your most hard-working salesperson, available around the clock. We craft purposeful designs that guide every visitor toward becoming a valued customer, blending aesthetics with conversion-driven strategy.",
+      "We build functional websites that enable your business to connect with customers, build relationships, drive sales, and thrive in today's digital marketplace. Create engaging, accessible, and user-friendly digital experiences that meet the expectations of your customers. Let your pages reflect your true passion and project your brand and services with clarity.",
     features: [
       "Bespoke visual design",
       "SEO-optimised page structure",
@@ -136,9 +138,9 @@ export const services: ServiceItem[] = [
     iconColor: "text-pink-400",
     category: "Marketing",
     summary:
-      "Data-driven campaigns across social media, search, and content channels that amplify brand visibility and drive growth.",
+      "Ignite your brand's digital ascent with strategic social media campaigns and targeted SEO that amplify your resonance.",
     description:
-      "Build a powerful digital presence with strategic marketing campaigns tailored to your business goals. From social media management and search engine optimisation to pay-per-click advertising and content strategy, we help you reach the right audience at the right time. Our data-driven approach ensures every campaign delivers measurable results and a strong return on investment.",
+      "Ignite your brand's digital ascent with our dynamic Digital Marketing solutions. Seamlessly integrating strategic social media campaigns and targeted SEO, we create a tailored strategy for your unique goals. From strategic social media campaigns to precision-targeted SEO, we amplify your brand's resonance. Craft compelling narratives, engage your audience, and foster meaningful connections across platforms.",
     features: [
       "Social media strategy and management",
       "Search engine optimisation (SEO)",

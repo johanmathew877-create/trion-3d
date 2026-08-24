@@ -43,7 +43,7 @@ export default function Navbar() {
             T
           </div>
           <span className="text-base font-bold tracking-tight text-white hidden sm:block">
-            Trion <span className="text-cyan-400">Informaatique</span>
+            Trion <span className="text-cyan-400">Informatique</span>
           </span>
         </Link>
 

@@ -9,7 +9,6 @@ function NetworkNodes() {
       className="absolute inset-0 w-full h-full opacity-20 pointer-events-none"
       preserveAspectRatio="xMidYMid slice"
     >
-      {/* Network lines */}
       {Array.from({ length: 15 }).map((_, i) => {
         const x1 = (i * 57) % 800;
         const y1 = 30 + (i * 37) % 140;
@@ -35,7 +34,6 @@ function NetworkNodes() {
           </line>
         );
       })}
-      {/* Network nodes */}
       {Array.from({ length: 15 }).map((_, i) => {
         const cx = (i * 57) % 800;
         const cy = 30 + (i * 37) % 140;
@@ -70,10 +68,8 @@ export default function FooterSection() {
 
   return (
     <footer className="relative py-24 px-6" style={{ zIndex: 10 }}>
-      {/* Network background */}
       <NetworkNodes />
 
-      {/* Top gradient line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
 
       <div className="max-w-6xl mx-auto relative z-10" ref={ref}>
@@ -95,7 +91,6 @@ export default function FooterSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {/* Phone */}
           <motion.a
             href="tel:+919895168851"
             initial={{ opacity: 0, y: 30 }}
@@ -114,7 +109,6 @@ export default function FooterSection() {
             </p>
           </motion.a>
 
-          {/* Email */}
           <motion.a
             href="mailto:reach.trion@gmail.com"
             initial={{ opacity: 0, y: 30 }}
@@ -128,12 +122,11 @@ export default function FooterSection() {
             <h3 className="text-base font-semibold text-white/60 uppercase tracking-wider mb-3">
               Email
             </h3>
-            <p className="text-2xl font-bold text-blue-300 neon-text-blue">
+            <p className="text-xl font-bold text-blue-300 neon-text-blue">
               reach.trion@gmail.com
             </p>
           </motion.a>
 
-          {/* Location badge */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -152,7 +145,6 @@ export default function FooterSection() {
           </motion.div>
         </div>
 
-        {/* Addresses */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -194,18 +186,17 @@ export default function FooterSection() {
           </div>
         </motion.div>
 
-        {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-white/5 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white font-black text-xs">
               T
             </div>
             <span className="text-lg font-bold text-white/60">
-              Trion <span className="text-cyan-400">Informaatique</span>
+              Trion <span className="text-cyan-400">Informatique</span>
             </span>
           </div>
           <p className="text-sm text-white/20">
-            &copy; {new Date().getFullYear()} Trion Informaatique. All rights reserved.
+            &copy; {new Date().getFullYear()} Trion Informatique. All rights reserved.
           </p>
         </div>
       </div>

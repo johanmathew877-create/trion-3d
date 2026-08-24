@@ -17,7 +17,6 @@ export default function AboutSection() {
           {/* Left: Helix animation / visual */}
           <div className="relative flex items-center justify-center min-h-[300px]">
             <div className="absolute inset-0 flex items-center justify-center">
-              {/* Animated helix rings */}
               <svg viewBox="0 0 300 300" className="w-64 h-64 opacity-30">
                 <defs>
                   <linearGradient id="helixGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -65,12 +64,11 @@ export default function AboutSection() {
               </svg>
             </div>
 
-            {/* Decorative floating badge */}
             <div className="relative z-10 glass-bright rounded-2xl p-8 neon-border animate-float">
               <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                10+
+                600K+
               </div>
-              <div className="text-lg text-white/40 mt-1">Years of Excellence</div>
+              <div className="text-lg text-white/40 mt-1">BUSY Licenses Sold</div>
             </div>
           </div>
 
@@ -95,12 +93,13 @@ export default function AboutSection() {
               className="glass rounded-2xl p-10 neon-border"
             >
               <p className="text-white/50 leading-relaxed text-lg sm:text-xl">
-                Welcome to Trion Informaatique, your strategic partner in technology
-                innovation. With a dedicated team of experts, we excel in software
-                development and IT consulting. Committed to excellence, we stay ahead in
-                technology, turning challenges into opportunities. Transparent, reliable,
-                and client-focused, Trion Informaatique is where innovation meets
-                results. Join us in shaping the future of technology —{" "}
+                Welcome to Trion Informatique, your strategic partner in
+                technology innovation. With a dedicated team of experts, we
+                excel in software development and IT consulting. Committed to
+                excellence, we stay ahead in technology, turning challenges
+                into opportunities. Transparent, integral, and client-focused,
+                Trion Informatique is where innovation meets results. Join us
+                in shaping the future of technology —{" "}
                 <span className="text-cyan-400 font-semibold neon-text">
                   Innovate. Transform. Thrive.
                 </span>

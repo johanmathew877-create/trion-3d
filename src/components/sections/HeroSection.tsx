@@ -18,7 +18,6 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* 3D Sphere — fixed fullscreen, always visible, above particles */}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{ zIndex: 5 }}
@@ -26,7 +25,6 @@ export default function HeroSection() {
         <HeroSphere />
       </div>
 
-      {/* Hero text — fades as you scroll */}
       <section className="relative" style={{ zIndex: 10 }}>
         <div
           className="min-h-screen flex items-center justify-center"
@@ -41,7 +39,7 @@ export default function HeroSection() {
               <h1 className="text-6xl sm:text-7xl md:text-9xl font-black tracking-tight text-white mb-6">
                 Trion{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                  Informaatique
+                  Informatique
                 </span>
               </h1>
             </motion.div>
@@ -61,11 +59,11 @@ export default function HeroSection() {
               transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="text-lg sm:text-xl md:text-2xl text-white/50 max-w-3xl mx-auto leading-relaxed mb-12"
             >
-              Trion Informaatique delivers a comprehensive suite of IT solutions
-              for modern businesses, encompassing ERP software consulting,
-              website design and development, digital marketing, and e-commerce
-              setup. We also provide business software installation, training,
-              and ongoing support.
+              Trion Informatique offers a comprehensive suite of IT solutions
+              for businesses, encompassing ERP software consulting, website
+              design and development, social media marketing, and e-commerce
+              setup. We also provide business software installation and
+              support.
             </motion.p>
 
             <motion.div
