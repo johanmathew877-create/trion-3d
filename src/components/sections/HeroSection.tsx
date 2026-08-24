@@ -1,21 +1,35 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Phone, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import HeroSphere from "@/components/three/HeroSphere";
 
 export default function HeroSection() {
+  const [textOpacity, setTextOpacity] = useState(1);
+
+  useEffect(() => {
+    const onScroll = () => {
+      // Fade text out over first 40% of viewport scroll
+      const fadeEnd = window.innerHeight * 0.4;
+      const opacity = Math.max(0, 1 - window.scrollY / fadeEnd);
+      setTextOpacity(opacity);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section className="relative" style={{ height: "300vh" }}>
-      {/* 3D Sphere Background — sticky so it stays in view while scrolling */}
+      {/* 3D Sphere — sticky, always visible */}
       <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
         <HeroSphere />
       </div>
 
-      {/* Text content — absolute overlay, stays in the first viewport */}
-      <div className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none">
-        {/* Radial gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background pointer-events-none" />
-
+      {/* Text overlay — fades out as you scroll */}
+      <div
+        className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none"
+        style={{ opacity: textOpacity }}
+      >
         <div className="text-center px-6 max-w-4xl mx-auto pointer-events-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
